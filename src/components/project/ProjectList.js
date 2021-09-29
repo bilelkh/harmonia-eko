@@ -53,8 +53,10 @@ function ProjectList() {
     }
   ];
 
+
+
   return (
-    <Box>
+    <Box style={{ padding: "100px", textAlign: "center" }}>
       <Grid
         container
         spacing={2}

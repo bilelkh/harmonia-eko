@@ -16,21 +16,23 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-
-// const ExpandMore = styled((props) => {
-//   const { expand, ...other } = props;
-//   return <IconButton {...other} />;
-// })(({ theme, expand }) => ({
-//   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-//   marginLeft: "auto",
-//   transition: theme.transitions.create("transform", {
-//     duration: theme.transitions.duration.shortest
-//   })
-// }));
+import { useHistory } from "react-router-dom";
 
 function ProjectItem({ project }) {
+  const history = useHistory();
+
+  const navagateToDetail = () => {
+    history.push(`project/${project.id}`);
+  };
   return (
-    <Grid item xs={12} sm={6} md={4}>
+    <Grid
+      style={{ cursor: "pointer" }}
+      onClick={navagateToDetail}
+      item
+      xs={12}
+      sm={6}
+      md={4}
+    >
       <Card>
         <CardHeader title={project.title} />
         <CardMedia

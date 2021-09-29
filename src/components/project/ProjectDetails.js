@@ -16,21 +16,17 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-
-// const ExpandMore = styled((props) => {
-//   const { expand, ...other } = props;
-//   return <IconButton {...other} />;
-// })(({ theme, expand }) => ({
-//   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-//   marginLeft: "auto",
-//   transition: theme.transitions.create("transform", {
-//     duration: theme.transitions.duration.shortest
-//   })
-// }));
-
+import { Box } from "@mui/system";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useHistory } from "react-router-dom";
 function ProjectDetails(props) {
+  const history = useHistory();
+
+  const navigateToProject = () => {
+    history.push("/project");
+  };
+
   const id = props.match.params.id;
-  console.log("===props.match.params.id===", props.match.params.id);
   const projects = [
     {
       id: 1,
@@ -81,7 +77,23 @@ function ProjectDetails(props) {
   ];
   const project = projects.find((p) => Number(p.id) === Number(id));
   return (
-    <Grid item xs={12} sm={6} md={4}>
+    <Box
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: "250px",
+        flexDirection: "column"
+      }}
+    >
+      <Button
+        onClick={navigateToProject}
+        variant="outlined"
+        startIcon={<ArrowBackIcon />}
+        style={{ marginBottom: "5px" }}
+      >
+        Retour
+      </Button>
       <Card>
         <CardHeader title={project.title} />
         <CardMedia
@@ -95,19 +107,8 @@ function ProjectDetails(props) {
             {project.description}
           </Typography>
         </CardContent>
-        {/* <CardActions
-          disableSpacing
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column"
-          }}
-        >
-          <TextField id="standard-basic" type="number" variant="standard" />
-          <Button variant="contained">Add to Cart</Button>
-        </CardActions> */}
       </Card>
-    </Grid>
+    </Box>
   );
 }
 
