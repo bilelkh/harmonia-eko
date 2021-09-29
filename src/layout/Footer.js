@@ -1,7 +1,6 @@
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import Link from "@material-ui/core/Link";
+import logo from "../assets/logo.png";
 
 export default function Footer() {
   return (
@@ -11,16 +10,21 @@ export default function Footer() {
         position: "absolute",
         left: "0",
         right: "0",
+        bottom: "0",
+        position: "absolute",
+        width: "100%",
       }}
     >
       <Box
         style={{
           backgroundColor: "#1976d2",
-          color: "#fff"
+          color: "#fff",
+          fontSize: "16px",
         }}
         color="blue"
       >
         <Container maxWidth="lg">
+          {/* <img src={logo} /> */}
           <Box textAlign="center" pt={{ xs: 5, sm: 10 }} pb={{ xs: 5, sm: 0 }}>
             harmonia-eko &reg; {new Date().getFullYear()}
           </Box>
