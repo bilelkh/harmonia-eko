@@ -1,37 +1,40 @@
-import React from "react";
+import * as React from "react";
 import MUIDataTable from "mui-datatables";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Icon from "@mui/material/Icon";
+import Button from "@mui/material/Button";
+import { useHistory } from "react-router-dom";
 
 const columns = [
   {
     name: "id",
     label: "id",
     options: {
-      display: false
-    }
+      display: false,
+    },
   },
   {
     name: "title",
     label: "titre",
     options: {
-      display: true
-    }
+      display: true,
+    },
   },
   {
     name: "price",
     label: "prix",
     options: {
-      display: true
-    }
+      display: true,
+    },
   },
   {
     name: "description",
     label: "description",
     options: {
-      display: true
-    }
-  }
+      display: true,
+    },
+  },
 ];
 
 const projects = [
@@ -40,7 +43,7 @@ const projects = [
     title: "lorem ipsum",
     image: "https://fakeimg.pl/300/",
     price: 10,
-    description: "lorem ipsum set dolro  sasa"
+    description: "lorem ipsum set dolro  sasa",
   },
   {
     id: 2,
@@ -48,7 +51,7 @@ const projects = [
     title: "lorem ipsum",
     image: "https://fakeimg.pl/300/",
     price: 10,
-    description: "lorem ipsum set dolro sasasasasa "
+    description: "lorem ipsum set dolro sasasasasa ",
   },
   {
     id: 3,
@@ -56,7 +59,7 @@ const projects = [
     title: "lorem ipsum",
     image: "https://fakeimg.pl/300/",
     price: 10,
-    description: "lorem ipsum set dolro sasasasa "
+    description: "lorem ipsum set dolro sasasasa ",
   },
   {
     id: 4,
@@ -64,7 +67,7 @@ const projects = [
     title: "lorem ipsum",
     image: "https://fakeimg.pl/300/",
     price: 10,
-    description: "lorem ipsum set dolro  sassasaa"
+    description: "lorem ipsum set dolro  sassasaa",
   },
   {
     id: 5,
@@ -72,23 +75,50 @@ const projects = [
     title: "lorem ipsum",
     image: "https://fakeimg.pl/300/",
     price: 10,
-    description: "lorem ipsum set dolro sasa"
+    description: "lorem ipsum set dolro sasa",
   },
   {
     id: 6,
     title: "lorem ipsum",
     image: "https://fakeimg.pl/300/",
     price: 10,
-    description: "lorem ipsum set dolro  sasa"
-  }
+    description: "lorem ipsum set dolro  sasa",
+  },
 ];
 
 const options = {
-  filterType: "checkbox"
+  filterType: "checkbox",
 };
-function adminProjectList() {
+function AdminProjectList() {
+  const history = useHistory();
+  const navigateTo = () => {
+    history.push("/admin/project/add");
+  };
+  
   return (
-    <Box style={{ padding: "100px", textAlign: "center" }}>
+    <Box
+      style={{ padding: "100px", textAlign: "center" }}
+      sx={{
+        "& > :not(style)": {
+          m: 2,
+        },
+      }}
+    >
+      <div style={{ float: "right" }}>
+        <Stack direction="row" spacing={2}>
+          <Button variant="outlined" onClick={navigateTo}>
+            <Icon
+              baseClassName="fas"
+              className="fa-plus-circle"
+              color="primary"
+            />
+            Add new Project
+          </Button>
+        </Stack>
+      </div>
+      <br />
+      <br />
+      <br />
       <MUIDataTable
         title={"list des projet"}
         data={projects}
@@ -99,4 +129,4 @@ function adminProjectList() {
   );
 }
 
-export default adminProjectList;
+export default AdminProjectList;
