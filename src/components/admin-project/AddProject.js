@@ -5,6 +5,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Container from "@mui/material/Container";
+import ButtonGroup from '@mui/material/ButtonGroup';
 import { useHistory } from "react-router-dom";
 
 function AddProject() {
@@ -29,16 +30,20 @@ function AddProject() {
       }}
     >
       <Button
+              variant="outlined"
+
         style={{
           marginTop: "6px",
           marginLeft: "500px",
         }}
+        startIcon={<ArrowBackIcon />}
         onClick={navigateTo}
       >
-        <ArrowBackIcon>add_circle</ArrowBackIcon>Back
+        Retour
       </Button>
+      <br/><br/>
       <Container maxWidth="sm">
-        <Box sx={{ bgcolor: "#cfe8fc", height: "53vh", width: "63vh" }}>
+        <Box sx={{ bgcolor: "#cfe8fc", height: "63vh", width: "63vh" }}>
           <br />
           <br />
           <TextField
@@ -48,7 +53,7 @@ function AddProject() {
             required
             id="outlined-required"
             label="Required"
-            placeholder="    Project Name"
+            placeholder="    Nom du projet"
           />
           <TextField
             label="Outlined primary"
@@ -57,7 +62,7 @@ function AddProject() {
             required
             id="outlined-required"
             label="Required"
-            placeholder="    Project Price"
+            placeholder="    Prix du projet"
           />
           <TextField
             label="Outlined primary"
@@ -67,20 +72,33 @@ function AddProject() {
             label="Description"
             multiline
             rows={6}
-            placeholder="   Project Description"
+            placeholder="   Description du projet"
           />
+          <ButtonGroup >
+          <Button
+            color="primary"
+            onClick={handleClick}
+            variant="contained"
+            style={{
+              marginTop: "19px",
+              marginLeft: "84px",
+            }}
+          >
+            réinitialiser
+          </Button>
           <Button
             color="primary"
             onClick={handleClick}
             startIcon={<SaveIcon />}
             variant="contained"
             style={{
-              marginTop: "20px",
-              marginLeft: "175px",
+              marginTop: "19px",
+              marginLeft: "21px",
             }}
           >
-            Save
+            Ajouter
           </Button>
+          </ButtonGroup>
         </Box>
       </Container>
     </Box>
