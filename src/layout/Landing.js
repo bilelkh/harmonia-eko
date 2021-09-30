@@ -102,7 +102,13 @@ function Landing() {
         <Button
           onClick={navigateToProject}
           variant="outlined"
-          startIcon={<ArrowForwardIcon />}
+          style={{
+            marginTop: "-10px",
+          }}
+          startIcon={<ArrowForwardIcon
+            style={{
+              marginTop: "-1px",
+            }} />}
         >
           La listes des projets
         </Button>
